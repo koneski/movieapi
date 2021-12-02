@@ -1,11 +1,15 @@
 package com.movieapi.data.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +19,7 @@ public class Movie implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
     private String year;
@@ -27,6 +31,10 @@ public class Movie implements Serializable{
     public Movie() {
 
     }
+   
+	public Long getId() {
+		return id;
+	}
 
 	public String getYear() {
 		return year;
@@ -48,6 +56,20 @@ public class Movie implements Serializable{
 		return winner;
 	}
 
+	@ManyToMany()
+	@JoinTable(
+		name = "movie_producer", 
+		joinColumns = @JoinColumn(name = "movie_id"),
+		inverseJoinColumns = @JoinColumn(name = "producer_id"))
+	private Set<Producer> movieProducer;
+	
+	public Set<Producer> getMovieProducer() {
+		return movieProducer;
+	}
+
+	public void setMovieProducer(Set<Producer> movieProducer) {
+		this.movieProducer = movieProducer;
+	}
 
 	@Override
 	public int hashCode() {
