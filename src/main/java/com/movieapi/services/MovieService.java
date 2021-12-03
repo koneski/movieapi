@@ -29,14 +29,10 @@ public class MovieService {
 			List<ProducerRangeDto> producerRangeDtoLst = new ArrayList<>();
 			objLst.forEach(v -> producerRangeDtoLst.add(new ProducerRangeDto((String) v[0], (int) v[1], (int) v[2],(int)v[3])));
 			for (int i=0; i < producerRangeDtoLst.size(); i++) {
-				if(i<2) {
-					producerRangeDtoLstMin.add(producerRangeDtoLst.get(i));
-				}else {
-					producerRangeDtoLstMax.add(producerRangeDtoLst.get(i));
-				}
+				if(i==0) producerRangeDtoLstMin.add(producerRangeDtoLst.get(i));
+				if(i==producerRangeDtoLst.size()-1) producerRangeDtoLstMax.add(producerRangeDtoLst.get(i));
 			}
 		}
-		
 		mimMaxResultDto.setMin(producerRangeDtoLstMin);
 		mimMaxResultDto.setMax(producerRangeDtoLstMax);
 		
