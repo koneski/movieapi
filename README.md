@@ -43,7 +43,7 @@ Java 11 - Spring boot ver2.6.1 - Spring Tools 4.6.0
 ---
 
 ### Recurso disponível
-Endpoint [GET] : http://localhost:8080/v1/movies/intervalo-premios\
+Endpoint [GET] : http://localhost:8080/v1/movies/intervalo-premios
 Response: 200
 
 ```json
@@ -82,13 +82,13 @@ Response: 200
 - JDK 11
 
 ### Execução
-- git clone https://github.com/koneski/movieapi.git\
+- git clone https://github.com/koneski/movieapi.git
 - Run As Spring Boot App...
 
 ---
 ### Banco H2
-- Console: http://localhost:8080/h2-console\
-- JDBC URL: jdbc:h2:mem:moviesdb\
+- Console: http://localhost:8080/h2-console
+- JDBC URL: jdbc:h2:mem:moviesdb
 
 O console H2, pode ser desabilitado no arquivo ../resources/application.properties, modificando a linha spring.h2.console.enabled=true para false.
 
